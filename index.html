@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>League of Guardians | Tung Duong</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title" style="font-family: Brush Script Std; font-weight: bold">          
+            League of Guardians            
+        </div>
+      </div>
+    </div>
+
+
+    <audio id="audio1">
+      <source src="TemplateData/inspireLOL.mp3" />
+    </audio>
+    <audio id="audio2">
+      <source src="TemplateData/diffStyle.mp3" />
+    </audio>
+    <audio id="audio3">
+      <source src="TemplateData/welcomeLOL.mp3" />
+    </audio>
+    <audio id="audio4">
+      <source src="TemplateData/StartArcaneBG.mp3" />
+    </audio>
+
+
+    <script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/WebGL_BuildNew.loader.js";
+      var config = {
+        //dataUrl: buildUrl + "/WebGL_BuildNew.data",
+        //dataUrl: "https://media.githubusercontent.com/media/[GitHub Username]/[Repository Name]/[Branch]/Build/[Filename].data",
+        dataUrl: "https://media.githubusercontent.com/media/TungDuong2/LeagueOfGuardians/master/Build/WebGL_BuildNew.data",
+        frameworkUrl: buildUrl + "/WebGL_BuildNew.framework.js",
+        codeUrl: buildUrl + "/WebGL_BuildNew.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Tung Duong - CS461 - UMB 2022",
+        productName: "League of Guardians",
+        productVersion: "0.1",
+        showBanner: unityShowBanner,
+      };
+
+      // By default Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        container.className = "unity-mobile";
+
+        // To lower canvas resolution on mobile devices to gain some
+        // performance, uncomment the following line:
+        // config.devicePixelRatio = 1;
+
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+
+        unityShowBanner('WebGL builds are not supported on mobile devices.');
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
+
+      //canvas.style.background = "url('" + buildUrl + "/WebGL_BuildNew.jpg') center / cover";
+      //canvas.style.background = "#454545";
+      canvas.style.background = "url(TemplateData/a2blur1.jpg)";
+      canvas.style.backgroundSize  = "cover";
+
+      //audio
+      var audio1 = document.getElementById('audio1');
+      var audio2 = document.getElementById('audio2');
+      var audio3 = document.getElementById('audio3');
+      var audio4 = document.getElementById('audio4');
+      //audio4.volumne = 0.0;
+
+      function playAudio(audio) {
+        //document.getElementById('audio').play();
+        audio.play();
+      }
+      //playAudio(audio4);
+
+      
+
+      /*document.body.addEventListener('mousemove', playAudio(audio4));
+      document.body.addEventListener('scroll', playAudio(audio4));
+      document.body.addEventListener('keydown', playAudio(audio4));
+      document.body.addEventListener('click', playAudio(audio4));
+      document.body.addEventListener('touchstart', playAudio(audio4));*/
+
+      const tryToPlay = setInterval(() => {
+          //const audio = new Audio(theAudioFile);
+
+          audio4.play()
+              .then(() => {
+                  clearInterval(tryToPlay);
+              })
+              .catch(error => {
+                  console.info('User has not interacted with document yet.');
+              });
+      }, 500);
+
+
+
+
+
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          //console.log(123);
+          playAudio(audio1);
+          setTimeout("playAudio(audio2)", 2500);
+          setTimeout("playAudio(audio3)", 6000);
+
+
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+
+  </body>
+</html>

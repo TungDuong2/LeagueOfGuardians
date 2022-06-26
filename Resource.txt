@@ -1,0 +1,74 @@
+Map:
+https://sketchfab.com/Jenioss
+Tower:
+https://sketchfab.com/ninjacharliet
+
+https://sketchfab.com/Kimblyy
+https://sketchfab.com/zsm123
+
+assets:
+https://assetstore.unity.com/packages/3d/characters/creatures/dragon-for-boss-monster-pbr-78923
+https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/mini-legion-footman-pbr-hp-polyart-86576
+https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/mini-legion-lich-pbr-hp-polyart-91497
+https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/rpg-hero-pbr-hp-polyart-121480
+
+https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/mini-legion-grunt-pbr-hp-polyart-98187#description
+https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/mini-legion-rock-golem-pbr-hp-polyart-94707#description
+
+https://sketchfab.com/3d-models/old-baron-nashor-lol-zombicide-abomination-a7cf77a17922487a81976867c2152abc
+https://sketchfab.com/3d-models/pbr-lol-flag-f66577276342403498b798517568ce4f
+https://sketchfab.com/3d-models/medieval-flag-b807b00647a7417da3e8654c85f78d87
+https://sketchfab.com/3d-models/fire-dragon-cf745691e2734c94b7f416232c3d6955
+https://sketchfab.com/3d-models/fire-and-ice-elemental-63bb209abd70430dad8c2bab5caee9a3
+
+https://sketchfab.com/3d-models/monster-eye-bat-a8f779a2778c4c9996b89767409df1a7
+https://sketchfab.com/3d-models/animated-monster-death-scream-looped-577844e7da3c4427871efc983902b79f
+https://sketchfab.com/3d-models/league-of-legends-aurelion-sol-a707c44f5d6d44b0805c1171521d958e
+
+
+sound:
+https://assetstore.unity.com/packages/audio/music/orchestral/the-combat-collection-starter-7208
+
+notes:
+- hover icon
+- chasing
+- waypoints
+- hdr - emission -  light object effect: https://www.youtube.com/watch?v=bU1sBNfbdM4
+- particle
+- NavMesh
+- InvokeRepeating("fu", 2.0f, 0.3f); and Invoke("fu", 2.0f); CancelInvoke("Shoot");
+- https://docs.unity3d.com/ScriptReference/Resources.Load.html
+- use try - catch
+- random
+- Camera.farClipPlane and near
+- speedup animation 
+- Halo light
+- line renderer (for laze)
+- EventSystem.IsPointerOverGameObject - Raycast Target
+- use Cutoff render mode for transparent image from photoshop
+
+
+https://sketchfab.com/3d-models/jumpboost-arrow-fad95c37aaa240e49377edcfe2552ee7
+https://docs.unity3d.com/ScriptReference/Material.SetTexture.html
+
+
+soundtrack:
+https://www.youtube.com/watch?v=iy6YDd5iHB4
+https://www.youtube.com/watch?v=Kj8l7DHkCaI
+
+background:
+https://wallpapersafari.com/summoners-rift-wallpaper/
+
+ref:
+https://www.youtube.com/watch?v=beuoNuK2tbk
+https://www.youtube.com/watch?v=d_0dAwk3wqI
+https://www.youtube.com/watch?v=QsOCSiXjXac
+
+victory and defeat animation:
+https://www.youtube.com/watch?v=dlkHpPRHUq8
+https://www.youtube.com/watch?v=xIJl8mjOzgU
+
+https://www.youtube.com/watch?v=IzMnCv_lPxI
+
+SFX:
+https://mixkit.co/free-sound-effects/sword/
