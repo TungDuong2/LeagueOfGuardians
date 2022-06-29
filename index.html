@@ -168,6 +168,10 @@
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
+          progressBarFull.style.textAlign = 'center';
+          progressBarFull.style.font = "italic bold 100% arial,serif";
+          progressBarFull.innerHTML = Math.floor(100 * progress) + "%";
+          
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
           //console.log(123);
